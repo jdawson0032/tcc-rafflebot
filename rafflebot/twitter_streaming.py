@@ -15,10 +15,10 @@ except ImportError:
 from twitter import Twitter, OAuth, TwitterHTTPError, TwitterStream
 
 # Variables that contains the user credentials to access Twitter API
-ACCESS_TOKEN = 'YOUR ACCESS TOKEN"'
-ACCESS_SECRET = 'YOUR ACCESS TOKEN SECRET'
-CONSUMER_KEY = 'YOUR API KEY'
-CONSUMER_SECRET = 'ENTER YOUR API SECRET'
+ACCESS_TOKEN = 'QWOKm1kskbRUFhkp8zlNMLQDVMvVCS3H7iGBw4YV'
+ACCESS_SECRET = 'yN570u2QFzrWWhp0iPso0wmLjDWMv0uv3PlIIHgGX5QUB'
+CONSUMER_KEY = 'QUGnrBWzjkNJUiDtHASHCcsYX'
+CONSUMER_SECRET = 'YE9mTQqOk2GmBqVObNLmzTztIstNrIuig5lvjIb30H7beAoKLR'
 
 oauth = OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
 
@@ -40,4 +40,5 @@ for tweet in iterator:
     # The command below will do pretty printing for JSON data, try it out
     # print json.dumps(tweet, indent=4)
 
-    if tweet_count
+    if tweet_count <= 0:
+        break
