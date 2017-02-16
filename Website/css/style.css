@@ -179,6 +179,12 @@ footer{
     text-align: left;
 }
 
+.raffle {
+position: relative;
+padding-bottom: 60px;
+color: black;
+}
+
 /* Media Queries */
 @media(max-width: 768px){
   header #branding,
