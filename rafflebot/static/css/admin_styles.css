@@ -1,0 +1,149 @@
+@charset "UTF-8";
+.banner {
+	background-color: #35424a;
+	border-bottom: 6px solid #E8491D;
+	height: 103px;
+}
+body {
+	background-color: #FFFFFF;
+	min-width: 400px;
+}
+
+#handle {
+}
+#raffleParameters {
+}
+.raffleForm {
+	width: 100%;
+	margin-top: 2vw;
+}
+.field {
+	margin-top: 2.3vw;
+
+}
+.raffle {
+}
+.monitor {
+	font-size: 1.2em;
+	text-align: center;
+	color: #35424A;
+	border-bottom: 2px solid #6C8799;
+	margin-top: 40px;
+}
+#homepage {
+	float: right;
+	color: #F4F4F4;
+	font-size: 1.3em;
+	width: 9%;
+}
+
+
+
+
+@media (min-width: 768px) and (max-width: 991px){
+.field {
+
+}
+
+}
+
+@media (max-width: 580px){
+.raffleForm {
+	font-size: 0.85em;
+
+
+}
+#bannerText {
+	font-size: 2.2em;
+}
+.monitor {
+	font-size: 0.95em;
+}
+
+
+
+}
+.startButton {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 30px;
+}
+#bannerText {
+	margin-left: 5%;
+	color: #ECECEC;
+}
+#bot {
+	color: #E8491D;
+}
+.footer {
+	background-color: #E8491E;
+	color: #FFFFFF;
+	height: 100px;
+	line-height: 55px;
+	margin-right: 0px;
+}
+h4 {
+	line-height: 37px;
+}
+
+.main {
+	height: 311px;
+	padding-top: 30px;
+}
+#welcome {
+	font-size: 1.4em;
+	padding-top: 18px;
+}
+.formComplete {
+	display: none;
+}
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+	width: 100%;
+	
+	
+}
+
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #35424a;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    background: #6c8799;
+    display: inline-block;
+}
+
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+}
+
+@media (min-width: 1200px){
+label {
+	width: 100%;
+
+}
+.field {
+	margin-top: 21px;
+}
+
+
+}
+
+@media (min-width: 992px){
+.field {
+	margin-top: 1.9vw;
+}
+
+}

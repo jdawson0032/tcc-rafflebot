@@ -24,6 +24,7 @@
   <div class="row">
     <div class="col-md-offset-0 col-md-12">
       <h1 class="text-left" id="bannerText">Social Media <span id="bot">Raffle Bot</span></h1>
+      <a id="homepage" href="{% url 'home' %}">Home</a>
     </div>
   </div>
 </div>
@@ -35,8 +36,8 @@
     </div>
   </div>
   <form id="raffleParameters" name="raffleParameters" method="post">
-    <div class="row main">
-      <div class="col-md-3 col-md-offset-3 col-sm-3 col-sm-offset-3 col-xs-5 col-xs-offset-1">
+    <div class="row main" id="mainOne">
+      <div class="col-md-3 col-md-offset-3 col-sm-3 col-sm-offset-3 col-xs-offset-2 col-xs-4">
         <label for="handle" class="raffleForm" id="handle">Handle for raffle:</label>
         <label for="hashtag" class="raffleForm" id="hashtag">Hashtag for entry:</label>
         <label for="numberEntries" class="raffleForm" id="entries">Number of entries allowed:</label>
@@ -46,7 +47,7 @@
         
         &nbsp;<br>
         &nbsp;</div>
-      <div class="col-md-3 col-sm-3 col-xs-5">
+      <div class="col-md-3 col-sm-3 col-xs-4">
         
         <input name="handle" type="text" required class="field" id="handleInput" form="raffleParameters"
                placeholder="@someHandle">
@@ -59,20 +60,14 @@
         <input name="hours" type="number" required class="field" id="hours" form="raffleParameters" min="0">
       </div>
     </div>
-    <div class="row">
+    <div class="row main" id="mainTwo">
       <div class="col--6 col-md-offset-4 col-md-4">
         <input name="startRaffle" type="submit" class="startButton" id="startRaffle" form="raffleParameters"
                formaction="mailto:niclaustein@gmail.com" formmethod="POST" value="Start Raffle!" onclick="validate()">
         &nbsp;</div>
     
     </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div>
-          <p class="text-center"> Timer place holder&nbsp;</p>
-        </div>
-        &nbsp;</div>
-    </div>
+    <div class="row"></div>
     <div class="row">
       <div class="col-md-12 col-xs-12 formComplete">&nbsp;</div>
     </div>
@@ -98,78 +93,105 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <div id="sentData" style="display:none;">
+        <div style="width:100%;height:100px;padding-top: 40px;">
+          <button href="" name="endRaffle" style="margin:auto; display:block;" onclick="endRaffle()">End Raffle</button>
+        </div>
+        <p class="monitor">The handle being monitored: <span id="handleSent"></span></p>
+        <p class="monitor">The hashtag being monitored: <span id="hashtagSent"></span></p>
+        <p class="monitor">The allowed amount of entries: <span id="entriesSent"></span></p>
+      
+      
+      </div>
+    </div>
+  
+  
+  </div>
+  <div class="footer text-center">
+    <h4>Serving up tickets since 2017</h4>
+    <p>Copyright &copy; 2017 &middot; All Rights Reserved &middot;</p>
+  </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="/static/js/jquery-1.11.3.min.js"></script>
+  
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="/static/js/bootstrap.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+      function validate() {
+
+          var a = document.getElementById("handleInput").value;
+          var b = document.getElementById("hashtagInput").value;
+          var c = document.getElementById("entriesInput").value;
+          var d = document.getElementById("feedInput").value;
+          var e = document.getElementById("days").value;
+          var f = document.getElementById("hours").value;
+
+          if (a.length > 0 && b.length > 0 && c.length > 0 && d.length > 0 && e.length > 0 && f.length > 0) {
+
+              function getTimeRemaining(endtime) {
+                  var t = Date.parse(endtime) - Date.parse(new Date());
+                  var seconds = Math.floor((t / 1000) % 60);
+                  var minutes = Math.floor((t / 1000 / 60) % 60);
+                  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                  return {
+                      'total': t,
+                      'days': days,
+                      'hours': hours,
+                      'minutes': minutes,
+                      'seconds': seconds
+                  };
+              }
+
+              function initializeClock(id, endtime) {
+                  var clock = document.getElementById(id);
+                  var daysSpan = clock.querySelector('.days');
+                  var hoursSpan = clock.querySelector('.hours');
+                  var minutesSpan = clock.querySelector('.minutes');
+                  var secondsSpan = clock.querySelector('.seconds');
+
+                  function updateClock() {
+                      var t = getTimeRemaining(endtime);
+
+                      daysSpan.innerHTML = t.days;
+                      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                      if (t.total <= 0) {
+                          clearInterval(timeinterval);
+                      }
+                  }
+
+                  updateClock();
+                  var timeinterval = setInterval(updateClock, 1000);
+              }
+
+              var deadline = new Date(Date.parse(new Date()) + (e * 24 * 60 * 60 * 1000) + (f * 60 * 60 * 1000));
+              initializeClock('clockdiv', deadline);
 
 
-</div>
-<div class="footer text-center">
-  <h4>Serving up tickets since 2017</h4>
-  <p>Copyright &copy; 2017 &middot; All Rights Reserved &middot;</p>
-</div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/static/js/jquery-1.11.3.min.js"></script>
+              document.getElementById("mainOne").style.display = "none";
+              document.getElementById("mainTwo").style.display = "none";
 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/static/js/bootstrap.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script>
-    function validate() {
-        var a = document.getElementById("handleInput").value;
-        var b = document.getElementById("hashtagInput").value;
-        var c = document.getElementById("entriesInput").value;
-        var d = document.getElementById("feedInput").value;
-        var e = document.getElementById("days").value;
-        var f = document.getElementById("hours").value;
+              document.getElementById("sentData").style.display = "block";
+              document.getElementById("handleSent").innerHTML = a;
+              document.getElementById("hashtagSent").innerHTML = b;
+              document.getElementById("entriesSent").innerHTML = c;
+              document.getElementById("welcome").innerHTML = "Your raffle has begun!!!";
+              document.getElementById("welcome").style.fontSize = "1.5em";
+              document.getElementById("twitter").href = "https://twitter.com/" + a;
 
 
-        if (a.length > 0 && b.length > 0 && c.length > 0 && d.length > 0 && e.length > 0 && f.length > 0) {
-            $("#startRaffle").click(function () {
-                $(".main").hide();
-            });
-        }
-        function getTimeRemaining(endtime) {
-            var t = Date.parse(endtime) - Date.parse(new Date());
-            var seconds = Math.floor((t / 1000) % 60);
-            var minutes = Math.floor((t / 1000 / 60) % 60);
-            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-            var days = Math.floor(t / (1000 * 60 * 60 * 24));
-            return {
-                'total': t,
-                'days': days,
-                'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds
-            };
-        }
-
-        function initializeClock(id, endtime) {
-            var clock = document.getElementById(id);
-            var daysSpan = clock.querySelector('.days');
-            var hoursSpan = clock.querySelector('.hours');
-            var minutesSpan = clock.querySelector('.minutes');
-            var secondsSpan = clock.querySelector('.seconds');
-
-            function updateClock() {
-                var t = getTimeRemaining(endtime);
-
-                daysSpan.innerHTML = t.days;
-                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-                if (t.total <= 0) {
-                    clearInterval(timeinterval);
-                }
-            }
-
-            updateClock();
-            var timeinterval = setInterval(updateClock, 1000);
-        }
-
-        var deadline = new Date(Date.parse(new Date()) + (e * 24 * 60 * 60 * 1000) + (f * 60 * 60 * 1000));
-        initializeClock('clockdiv', deadline);
-    }
+          }
 
 
-</script>
+      }
+  
+  
+  </script>
 </body>
 </html>
