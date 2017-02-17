@@ -57,24 +57,47 @@
   </div>
   <div class="row">
     <div class="col--6 col-md-offset-4 col-md-4">
-      <input onclick="validate()" name="startRaffle" type="submit" class="startButton" id="startRaffle" form="raffleParameters" formaction="mailto:niclaustein@gmail.com" formmethod="POST" value="Start Raffle!">
+      <input name="startRaffle" type="submit" class="startButton" id="startRaffle" form="raffleParameters" formaction="mailto:niclaustein@gmail.com" formmethod="POST" value="Start Raffle!" onclick="validate()">
       &nbsp;</div>
 	  
 </div>
   <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div>
+        <p class="text-center"> Timer place holder&nbsp;</p>
+      </div>
+      &nbsp;</div>
+</div>
+  <div class="row">
     <div class="col-md-12 col-xs-12 formComplete">&nbsp;</div>
 </div>
-	</form>
+  </form>
 	
-  <div class="row"> </div>
-  <div class="row">
-    <div class="text-center col-md-offset-0 col-md-12 footer">
+  <div class="row"> <div id="clockdiv">
+  <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <span class="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div></div>
+    
+	
+</div>
+<div class="footer text-center">
       <h4>Serving up tickets since 2017</h4>
       <p>Copyright &copy; 2017 &middot; All Rights Reserved &middot;</p>
     </div>
-  </div>
-  <hr>
-</div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-1.11.3.min.js"></script>
 
@@ -90,12 +113,56 @@
 		var e = document.getElementById("days").value;
 		var f = document.getElementById("hours").value;
 		
+		
+		
 		if(a.length > 0 && b.length > 0 && c.length > 0 && d.length > 0 && e.length > 0 && f.length > 0){
 		$( "#startRaffle" ).click(function() {
 		  $( ".main" ).hide();
 		});
 		}
+		function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(Date.parse(new Date()) + (e * 24 * 60 * 60 * 1000) + (f * 60 * 60 * 1000) );
+initializeClock('clockdiv', deadline);
 	}
+	
 	
 </script>	
 </body>
