@@ -4,7 +4,13 @@ staticfiles
 .env
 .cache
 .idea/misc.xml
+<<<<<<< HEAD
 .idea/modules.xml
 .idea/workspace.xml
 .idea/tcc-rafflebot.iml
+=======
+.idea/tcc-rafflebot.iml
+.idea/modules.xml
+.idea/workspace.xml
+>>>>>>> refs/remotes/origin/jim
 .idea/vcs.xml
