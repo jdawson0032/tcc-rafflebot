@@ -1,5 +1,3 @@
-@import "compass/css3";
-
 /* Play with speed and easing of the animation */
 $one-second: 1s;
 $easing: cubic-bezier(1,0,1,0);
