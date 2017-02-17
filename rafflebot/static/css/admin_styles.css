@@ -14,20 +14,35 @@ body {
 #raffleParameters {
 }
 .raffleForm {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-top: 5%;
+	width: 100%;
+	margin-top: 2vw;
 }
 .field {
-	margin-top: 1.2em;
+	margin-top: 2.3vw;
 
 }
 .raffle {
 }
+.monitor {
+	font-size: 1.2em;
+	text-align: center;
+	color: #35424A;
+	border-bottom: 2px solid #6C8799;
+	margin-top: 40px;
+}
+#homepage {
+	float: right;
+	color: #F4F4F4;
+	font-size: 1.3em;
+	width: 9%;
+}
+
+
+
 
 @media (min-width: 768px) and (max-width: 991px){
 .field {
-	margin-top: 20px;
+
 }
 
 }
@@ -36,7 +51,16 @@ body {
 .raffleForm {
 	font-size: 0.85em;
 
+
 }
+#bannerText {
+	font-size: 2.2em;
+}
+.monitor {
+	font-size: 0.95em;
+}
+
+
 
 }
 .startButton {
@@ -73,4 +97,53 @@ h4 {
 }
 .formComplete {
 	display: none;
+}
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+	width: 100%;
+	
+	
+}
+
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #35424a;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    padding: 15px;
+    border-radius: 3px;
+    background: #6c8799;
+    display: inline-block;
+}
+
+.smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+}
+
+@media (min-width: 1200px){
+label {
+	width: 100%;
+
+}
+.field {
+	margin-top: 21px;
+}
+
+
+}
+
+@media (min-width: 992px){
+.field {
+	margin-top: 1.9vw;
+}
+
 }
