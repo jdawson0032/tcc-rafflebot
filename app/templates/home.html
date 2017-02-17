@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="description" content="A raffle for use with Twitter and Facebook">
-	  <meta name="keywords" content="raffle, social media, prizes, twitter, facebook/>
-  	<meta name="author" content="Ernest Webb">
-    <title>Social Media Rafflebot | Welcome</title>
-    <link rel="stylesheet" href="/static/css/home_styles.css">
-    <link rel="stylesheet" href="/static/css/timer.css">
-    <script src="/static/js/timer.js"></script>
-  </head> <!-- End of Head -->
-  <body>
-    <header>
-      <div class="container">
-        <div id="branding">
-          <h1>Social Media <span class="highlight">Rafflebot</span></h1>
-        </div> <!-- End of Branding Div-->
-        <nav>
-          <ul>
-            <li class="current"><a href="home.html">Home</a></li>
-            <li class="current"><a href="admin.html">Admin Page</a></li>
-            <li> <a class="twitter-follow-button" href="https://twitter.com/DomEnterprises" data-size="large"></a></li>
-          </ul>
-        </nav> <!-- End of Nav -->
-      </div> <!-- End of Container Div-->
-    </header> <!-- End of Header -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="A raffle for use with Twitter and Facebook">
+  <meta name="keywords" content="raffle, social media, prizes, twitter, facebook"/>
+  <meta name="author" content="Ernest Webb">
+  <title>Social Media Rafflebot | Welcome</title>
+  <link rel="stylesheet" href="/static/css/home_styles.css">
+  <link rel="stylesheet" href="/static/css/timer.css">
+  <script src="/static/js/timer.js"></script>
+</head> <!-- End of Head -->
+<body>
+<header>
+  <div class="container">
+    <div id="branding">
+      <h1>Social Media <span class="highlight">Rafflebot</span></h1>
+    </div> <!-- End of Branding Div-->
+    <nav>
+      <ul>
+        <li class="current"><a href="{% url 'home' %}">Home</a></li>
+        <li class="current"><a href="{% url 'admin' %}">Admin Page</a></li>
+        <li><a class="twitter-follow-button" href="https://twitter.com/DomEnterprises" data-size="large"></a></li>
+      </ul>
+    </nav> <!-- End of Nav -->
+  </div> <!-- End of Container Div-->
+</header> <!-- End of Header -->
 
-    <section id="showcase">
-      <div class="container">
-        <div class="raffle"><h1>The Raffle Ends in <span id="time">05:00</span> minutes!</h1></div>
-        <div class="twitterborder">
-                <div class="table">
-                    <div class="table-cell">
-              <a id = "twitter" class="twitter-timeline tw-align-left" data-width="25em" data-height="25em" href="https://twitter.com/DomEnterprises">Tweets by DomEnterprises</a> <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<section id="showcase">
+  <div class="container">
+    <div class="raffle"><h1>The Raffle Ends in <span id="time">05:00</span> minutes!</h1></div>
+    {% comment %}<div class="twitterborder">
+      <div class="table">
+        <div class="table-cell">
+          <a id="twitter" class="twitter-timeline tw-align-left" data-width="25em" data-height="25em"
+             href="https://twitter.com/DomEnterprises">Tweets by DomEnterprises</a>
+          <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          
+          <script>
+              !function (d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? 'http' : 'https';
+                  if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + "://platform.twitter.com/widgets.js";
+                      fjs.parentNode.insertBefore(js, fjs);
+                  }
+              }(document, "script", "twitter-wjs");
+          </script> <!-- End of Script -->
+        </div> <!-- End of Table-Cell Class -->
+      </div> <!-- End of Table Class -->
+    </div> <!-- End of twitterborder Class -->{% endcomment %}
+    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/hacku5"
+       data-widget-id="832480206333960192">#hacku5 Tweets</a>
+    <script>!function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, "script", "twitter-wjs");</script>
+  </div> <!-- End of Container Class Div-->
 
-                <script>
-                    ! function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0],
-                            p = /^http:/.test(d.location) ? 'http' : 'https';
-                        if (!d.getElementById(id)) {
-                            js = d.createElement(s);
-                            js.id = id;
-                            js.src = p + "://platform.twitter.com/widgets.js";
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }
-                    }(document, "script", "twitter-wjs");
-                </script> <!-- End of Script -->
-              </div> <!-- End of Table-Cell Class -->
-            </div> <!-- End of Table Class -->
-          </div> <!-- End of twitterborder Class -->
-      </div> <!-- End of Container Class Div-->
-    </section> <!-- End of Showcase ID Section -->
 
-        <section id="newsletter">
-          <div class="container"> </div> <!-- End of Container Div -->
-        </section> <!-- End of NewsLetter Section -->
+</section> <!-- End of Showcase ID Section -->
 
-        <section id="boxes">
-          <div class="container">
-          </div> <!-- End of Container Div -->
-        </section> <!-- End of Boxes Section -->
+<section id="newsletter">
+  <div class="container"></div> <!-- End of Container Div -->
+</section> <!-- End of NewsLetter Section -->
 
-        <footer>
-          <p>Social Media Rafflebot, Copyright &copy; 2017</p>
-        </footer> <!-- End of Footer -->
-      </body> <!-- End of Body Tag-->
-    </html> <!-- End of HTML Tag -->
+<section id="boxes">
+  <div class="container">
+  </div> <!-- End of Container Div -->
+</section> <!-- End of Boxes Section -->
+
+<footer>
+  <p>Social Media Rafflebot, Copyright &copy; 2017</p>
+</footer> <!-- End of Footer -->
+</body> <!-- End of Body Tag-->
+</html> <!-- End of HTML Tag -->
