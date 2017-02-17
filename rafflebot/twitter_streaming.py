@@ -1,7 +1,8 @@
 # import necessary package to process data in JSON format
+import twitter
 try:
     import json
-except ImportError
+except ImportError:
     import simplejson as json
 
 #import the necessary methods from the twitter library
