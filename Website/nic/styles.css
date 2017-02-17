@@ -1,0 +1,76 @@
+@charset "UTF-8";
+.banner {
+	background-color: #35424a;
+	border-bottom: 6px solid #E8491D;
+	height: 103px;
+}
+body {
+	background-color: #FFFFFF;
+	min-width: 400px;
+}
+
+#handle {
+}
+#raffleParameters {
+}
+.raffleForm {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5%;
+}
+.field {
+	margin-top: 1.2em;
+
+}
+.raffle {
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+.field {
+	margin-top: 20px;
+}
+
+}
+
+@media (max-width: 580px){
+.raffleForm {
+	font-size: 0.85em;
+
+}
+
+}
+.startButton {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 30px;
+}
+#bannerText {
+	margin-left: 5%;
+	color: #ECECEC;
+}
+#bot {
+	color: #E8491D;
+}
+.footer {
+	background-color: #E8491E;
+	color: #FFFFFF;
+	height: 100px;
+	line-height: 55px;
+	margin-right: 0px;
+}
+h4 {
+	line-height: 37px;
+}
+
+.main {
+	height: 311px;
+	padding-top: 30px;
+}
+#welcome {
+	font-size: 1.4em;
+	padding-top: 18px;
+}
+.formComplete {
+	display: none;
+}
