@@ -3,8 +3,5 @@ venv
 staticfiles
 .env
 .cache
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
-.idea/tcc-rafflebot.iml
-.idea/vcs.xml
+.idea/
+rafflebot/static/img/Thumbs.db
