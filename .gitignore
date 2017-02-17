@@ -4,7 +4,7 @@ staticfiles
 .env
 .cache
 .idea/misc.xml
-.idea/tcc-rafflebot.iml
 .idea/modules.xml
 .idea/workspace.xml
+.idea/tcc-rafflebot.iml
 .idea/vcs.xml

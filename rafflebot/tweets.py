@@ -18,8 +18,8 @@ api = twitter.Api(consumer_key='QUGnrBWzjkNJUiDtHASHCcsYX',
                       access_token_secret='yN570u2QFzrWWhp0iPso0wmLjDWMv0uv3PlIIHgGX5QUB')
 """
 
-import config
-import twitter
+from . import config
+import twitter  # https://python-twitter.readthedocs.io/en/stable/
 
 # dom_followers = get_dom_follers()
 
@@ -28,27 +28,25 @@ api = twitter.Api(consumer_key=config.consumer_key,
                   access_token_key=config.access_token,
                   access_token_secret=config.access_secret)
 
-'''
-results = api.GetSearch(
-    raw_query="q=%23HACKU5%20&result_type=recent&since=2014-07-19&count=10")  # get the users with hashtag
-'''
+# results = api.GetSearch(
+#     raw_query="q=%23HACKU5%20&result_type=recent&since=2014-07-19&count=10")  # get the users with hashtag
+
 results = api.GetSearch(
     raw_query="q=%23HACKU5%20&result_type=recent&since=2014-07-19")  # get the users with hashtag
 
 sender = 'Monster_Clean'
 users = [elem.AsDict()['user']['id'] for elem in results]  # and extract their user id's
-print (type(users))
+print(type(users))
 
 domfols = api.GetFollowerIDs(screen_name='DomEnterprises')  # get user id's of users following DomEnterprises
 
 for user in users:
     if user in domfols:
-        print (user)
+        print(user)
     else:
-        print ('Fail')
+        print('Fail')
 
 '''
-
 domfollowers = api.GetFollowerIDs('@DomEnterprises')
 print (domfollowers)
 print([u.name for u in users])
