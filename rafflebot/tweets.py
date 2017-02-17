@@ -19,7 +19,7 @@ api = twitter.Api(consumer_key='QUGnrBWzjkNJUiDtHASHCcsYX',
 """
 
 from . import config
-import twitter
+import twitter  # https://python-twitter.readthedocs.io/en/stable/
 
 # dom_followers = get_dom_follers()
 
