@@ -12,3 +12,14 @@ def home(request):
         request,
         'home.html',
     )
+
+
+def admin(request):
+    """
+    View function for admin page of site.
+    """
+    
+    return render(
+        request,
+        'admin.html',
+    )
