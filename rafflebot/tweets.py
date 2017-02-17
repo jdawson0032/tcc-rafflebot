@@ -1,5 +1,4 @@
-'''
-
+"""
 import tweepy
 
 auth = tweepy.OAuthHandler('RmWG8S047ag7YP8Xb5RyrlEsV', '0oCy3JoernuZqUQ3FAJDzsT3OaFPaDX0XJbJYyo767eQnUGRvk')
@@ -17,18 +16,17 @@ api = twitter.Api(consumer_key='QUGnrBWzjkNJUiDtHASHCcsYX',
                       consumer_secret='YE9mTQqOk2GmBqVObNLmzTztIstNrIuig5lvjIb30H7beAoKLR',
                       access_token_key='109412756-QWOKm1kskbRUFhkp8zlNMLQDVMvVCS3H7iGBw4YV',
                       access_token_secret='yN570u2QFzrWWhp0iPso0wmLjDWMv0uv3PlIIHgGX5QUB')
-'''
+"""
 
 import config
 import twitter
 
-
-#dom_followers = get_dom_follers()
+# dom_followers = get_dom_follers()
 
 api = twitter.Api(consumer_key=config.consumer_key,
-                    consumer_secret=config.consumer_secret,
-                    access_token_key=config.access_token,
-                    access_token_secret=config.access_secret)
+                  consumer_secret=config.consumer_secret,
+                  access_token_key=config.access_token,
+                  access_token_secret=config.access_secret)
 
 '''
 results = api.GetSearch(
@@ -37,19 +35,17 @@ results = api.GetSearch(
 results = api.GetSearch(
     raw_query="q=%23HACKU5%20&result_type=recent&since=2014-07-19")  # get the users with hashtag
 
-sender='Monster_Clean'
-users = [elem.AsDict()['user']['id'] for elem in results] # and extract their user id's
+sender = 'Monster_Clean'
+users = [elem.AsDict()['user']['id'] for elem in results]  # and extract their user id's
 print (type(users))
 
 domfols = api.GetFollowerIDs(screen_name='DomEnterprises')  # get user id's of users following DomEnterprises
-
 
 for user in users:
     if user in domfols:
         print (user)
     else:
         print ('Fail')
-
 
 '''
 
